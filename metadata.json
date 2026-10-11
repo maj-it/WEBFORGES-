@@ -1,0 +1,6 @@
+{
+  "name": "WebForge OS",
+  "description": "Un IDE de création de sites web assisté par IA. Générez, modifiez et visualisez des sites HTML/Tailwind en temps réel via Ollama.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

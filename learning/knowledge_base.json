@@ -1,0 +1,13 @@
+{
+  "best_practices": {
+    "web": ["toujours mobile-first", "design bento-grid", "animations smooth"],
+    "python": ["toujours PEP8", "typage statique requis"],
+    "react": ["toujours TypeScript", "composants fonctionnels hooks"]
+  },
+  "user_preferences": {
+    "preferred_style": "modern",
+    "preferred_colors": "dark",
+    "preferred_framework": "tailwind"
+  },
+  "learned_patterns": []
+}

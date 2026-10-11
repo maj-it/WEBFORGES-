@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "A set of files representing a web build.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "The name of the project." },
+        "versions": { "type": "array", "description": "Historical snapshots of the project files." },
+        "currentVersionIndex": { "type": "integer", "description": "Index of the active version." },
+        "activeFile": { "type": "string", "description": "Currently edited file." },
+        "userId": { "type": "string", "description": "The owner's UID." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp." }
+      },
+      "required": ["name", "versions", "userId"]
+    },
+    "DataItem": {
+      "title": "DataItem",
+      "description": "A key-value pair for CMS data.",
+      "type": "object",
+      "properties": {
+        "key": { "type": "string", "description": "The data identifier." },
+        "value": { "type": "string", "description": "The data content." },
+        "userId": { "type": "string", "description": "The owner's UID." }
+      },
+      "required": ["key", "value", "userId"]
+    },
+    "Deployment": {
+      "title": "Deployment",
+      "description": "A published build.",
+      "type": "object",
+      "properties": {
+        "projectId": { "type": "string" },
+        "projectName": { "type": "string" },
+        "code": { "type": "string" },
+        "authorId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["projectId", "code", "authorId"]
+    },
+    "UserPreferences": {
+      "title": "UserPreferences",
+      "description": "User specific app settings.",
+      "type": "object",
+      "properties": {
+        "theme": { "type": "string", "enum": ["dark", "light", "brutalist"], "description": "UI theme selection." },
+        "autoSave": { "type": "boolean" },
+        "defaultViewport": { "type": "string", "enum": ["desktop", "tablet", "mobile"] },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["theme", "autoSave", "defaultViewport"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/preferences/main": {
+      "schema": "UserPreferences",
+      "description": "User specific preferences."
+    },
+    "/users/{userId}/projects/{projectId}": {
+      "schema": "Project",
+      "description": "User specific projects."
+    },
+    "/users/{userId}/cms_data/{itemId}": {
+      "schema": "DataItem",
+      "description": "User specific CMS variables."
+    },
+    "/deployments/{deployId}": {
+      "schema": "Deployment",
+      "description": "Public deployments."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "last_updated": "2026-08-25T08:24:44.951Z",
+  "packages": [
+    {
+      "package": "react",
+      "error": "failed"
+    },
+    {
+      "package": "next",
+      "error": "failed"
+    },
+    {
+      "package": "tailwindcss",
+      "error": "failed"
+    },
+    {
+      "package": "framer-motion",
+      "error": "failed"
+    },
+    {
+      "package": "lucide-react",
+      "error": "failed"
+    }
+  ]
+}
